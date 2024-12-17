@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiUppgift.ViewModels"
+             xmlns:model="clr-namespace:MauiUppgift.Models"
+             x:DataType="vm:DogViewModel"
+             x:Class="MauiUppgift.DogPage"
+             Title="DogPage">
+    <Grid>
+        <Image Source="bossydogg.jpg" Aspect="AspectFill"/>
+
+        <ScrollView>
+            <Grid RowDefinitions="Auto,*">
+                <Frame Grid.Row="0" BackgroundColor="#EE9FBD" Margin="10" BorderColor="#9C3958">
+                    <VerticalStackLayout>
+                        <Entry Text="{Binding Input}" Placeholder="Sök efter ras.." />
+                        <Button Text="Sök" Command="{Binding GetDogCommand}" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
