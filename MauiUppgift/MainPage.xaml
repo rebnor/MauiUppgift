@@ -39,7 +39,7 @@
                             <Shadow Brush="#D56126" Offset="4,4" Radius="6"/>
                         </Label.Shadow>
                     </Label>
-                    <ImageButton Source="paw.png" VerticalOptions="End" Margin="0,10" Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=GotoDogCommand}" HeightRequest="50" WidthRequest="50" BackgroundColor="white" CornerRadius="20"/>
+                    <ImageButton Source="paw.png" VerticalOptions="End" Margin="0,10" Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=GotoDogCommand}" HeightRequest="50" WidthRequest="50" BackgroundColor="#F8DD5C" CornerRadius="20"/>
                 </VerticalStackLayout>
             </Grid>
         </ScrollView>

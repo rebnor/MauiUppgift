@@ -6,7 +6,7 @@
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(DogPage), typeof(DogPage));
-
+            Routing.RegisterRoute(nameof(DetailPage), typeof(DetailPage));
         }
     }
 }

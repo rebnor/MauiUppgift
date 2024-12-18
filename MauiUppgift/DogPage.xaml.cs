@@ -9,4 +9,13 @@ public partial class DogPage : ContentPage
 		InitializeComponent();
 		BindingContext = vm;
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        if (BindingContext is DogViewModel viewModel)
+        {
+            viewModel.ResetState();
+        }
+    }
 }

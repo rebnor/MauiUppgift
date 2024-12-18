@@ -9,6 +9,13 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="StyledSlider" TargetType="Slider">
+                <Setter Property="ThumbImageSource" Value="small_paw.png" />
+                <Setter Property="ThumbColor" Value="Black" />
+                <Setter Property="MinimumTrackColor" Value="Green" />
+                <Setter Property="MaximumTrackColor" Value="Green" />
+                <Setter Property="HeightRequest" Value="20" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

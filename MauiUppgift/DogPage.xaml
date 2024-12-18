@@ -7,16 +7,38 @@
              x:Class="MauiUppgift.DogPage"
              Title="DogPage">
     <Grid>
-        <Image Source="bossydogg.jpg" Aspect="AspectFill"/>
-
+        <Image Source="bossydog.jpg" Aspect="AspectFill"/>
         <ScrollView>
-            <Grid RowDefinitions="Auto,*">
-                <Frame Grid.Row="0" BackgroundColor="#EE9FBD" Margin="10" BorderColor="#9C3958">
+ 
+                        <Grid RowDefinitions="Auto,*">
+                <Frame BackgroundColor="#EEDADF" Margin="10" Padding="5" BorderColor="#9C3958" Grid.Row="0">
                     <VerticalStackLayout>
-                        <Entry Text="{Binding Input}" Placeholder="Sök efter ras.." />
-                        <Button Text="Sök" Command="{Binding GetDogCommand}" />
+                        <Entry Text="{Binding Input}" Placeholder="Search after race.." />
+                        <Button Text="Search" Command="{Binding GetDogCommand}" />
                     </VerticalStackLayout>
                 </Frame>
+                    <VerticalStackLayout Grid.Row="1">
+                    <CollectionView ItemsSource="{Binding Dogs}" EmptyView="{Binding Message}">
+                        <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="model:Dog">
+                                <Grid Margin="5">
+                                    <Frame BackgroundColor="#40000000" Margin="10" BorderColor="#9C3958" HeightRequest="40" Padding="5">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:DogViewModel}}, Path=GotoDetailCommand}" CommandParameter="{Binding .}" />
+                                        </Frame.GestureRecognizers>
+                                        <Grid WidthRequest="300">
+                                            <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" TextColor="#FBB4EA" HorizontalOptions="Center" >
+                                                <Label.Shadow>
+                                                    <Shadow Brush="black" Offset="2,2" Radius="1" />
+                                                </Label.Shadow>
+                                            </Label>
+                                        </Grid>
+                                        </Frame>
+                                </Grid>
+                            </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
             </Grid>
         </ScrollView>
     </Grid>

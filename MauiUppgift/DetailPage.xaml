@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiUppgift.ViewModels"
+             xmlns:model="clr-namespace:MauiUppgift.Models"
+             x:DataType="vm:DetailViewModel"
+             x:Class="MauiUppgift.DetailPage"
+             Title="DetailPage">
+    <Grid>
+        <Image Source="sundoggy.jpg" Aspect="AspectFill"/>
+        <ScrollView>
+            <VerticalStackLayout Padding="10">
+                <Label Text="{Binding Dog.Name}" FontSize="Title" HorizontalOptions="Center" TextColor="#9A744F">
+                    <Label.Shadow>
+                        <Shadow Brush="black" Offset="2,2" Radius="2"/>
+                    </Label.Shadow>
+                </Label>
+
+                <Image Source="{Binding Dog.ImageLink}" HeightRequest="150"/>
+
+                <Frame BorderColor="Black" CornerRadius="10" Padding="4" Margin="30,10" BackgroundColor="#F7EEC5">
+                    <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="1" ColumnSpacing="1">
+                        <Label Text="" Grid.Row="0" Grid.Column="0"/>
+                        <Label Text="Male" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        <Label Text="Female" Grid.Row="0" Grid.Column="2" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+                        <BoxView Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="1" BackgroundColor="Black" />
+
+                        <Label Text="Max Height:" Grid.Row="2" Grid.Column="0" />
+                        <Label Text="{Binding Dog.MaxHeightMaleCm, StringFormat='{0} cm'}" Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding Dog.MaxHeightFemaleCm, StringFormat='{0} cm'}" Grid.Row="2" Grid.Column="2" HorizontalTextAlignment="Center" />
+
+                        <BoxView Grid.Row="3" Grid.ColumnSpan="3" HeightRequest="0.5" BackgroundColor="black" />
+
+                        <Label Text="Max Weight:" Grid.Row="4" Grid.Column="0"/>
+                        <Label Text="{Binding Dog.MaxWeightMaleKg, StringFormat='{0} kg'}" Grid.Row="4" Grid.Column="1" HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding Dog.MaxWeightFemaleKg, StringFormat='{0} kg'}" Grid.Row="4" Grid.Column="2" HorizontalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <Label Text="{Binding Dog.LifeSpan, StringFormat='Lifespan: {0}'}" Margin="10" FontSize="Title" HorizontalOptions="Center" TextColor="#9A744F">
+                    <Label.Shadow>
+                        <Shadow Brush="black" Offset="2,2" Radius="2"/>
+                    </Label.Shadow>
+                </Label>
+
+                <Frame BackgroundColor="#20000000" Padding="10" CornerRadius="10">
+                    <VerticalStackLayout>
+                        <Label Text="Character" HorizontalOptions="Center" TextDecorations="Underline" FontSize="Subtitle" />
+
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                    <Label Text="{Binding Dog.Barking, StringFormat='Barking: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="0" Grid.Column="1" />
+                    <Slider Value="{Binding Dog.Barking}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                    <Label Text="5" Grid.Column="4" />
+                </Grid>
+
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                    <Label Text="{Binding Dog.Energy, StringFormat='Energy: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="0" Grid.Column="1" />
+                    <Slider Value="{Binding Dog.Energy}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                    <Label Text="5" Grid.Column="4" />
+                </Grid>
+
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                    <Label Text="{Binding Dog.Protectiveness, StringFormat='Protectiveness: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+
+                    <Label Text="0" Grid.Column="1" />
+                    <Slider Value="{Binding Dog.Protectiveness}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                    <Label Text="5" Grid.Column="4" />
+                </Grid>
+
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                    <Label Text="{Binding Dog.Playfulness, StringFormat='Playfulness: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="0" Grid.Column="1" />
+                    <Slider Value="{Binding Dog.Playfulness}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                    <Label Text="5" Grid.Column="4" />
+                </Grid>
+
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                    <Label Text="{Binding Dog.Trainability, StringFormat='Trainability: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="0" Grid.Column="1" />
+                    <Slider Value="{Binding Dog.Trainability}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                    <Label Text="5" Grid.Column="4" />
+                </Grid>
+
+                <Label Text="Care" HorizontalOptions="Center" TextDecorations="Underline" FontSize="Subtitle" />
+
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                    <Label Text="{Binding Dog.CoatLength, StringFormat='Coat: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="0" Grid.Column="1" />
+                    <Slider Value="{Binding Dog.CoatLength}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                    <Label Text="5" Grid.Column="4" />
+                </Grid>
+
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                    <Label Text="{Binding Dog.Drooling, StringFormat='Drooling: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="0" Grid.Column="1" />
+                    <Slider Value="{Binding Dog.Drooling}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                    <Label Text="5" Grid.Column="4" />
+                </Grid>
+
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                    <Label Text="{Binding Dog.Grooming, StringFormat='Grooming: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="0" Grid.Column="1" />
+                    <Slider Value="{Binding Dog.Grooming}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                    <Label Text="5" Grid.Column="4" />
+                </Grid>
+
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                    <Label Text="{Binding Dog.Shedding, StringFormat='Shredding: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="0" Grid.Column="1" />
+                    <Slider Value="{Binding Dog.Shedding}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                    <Label Text="5" Grid.Column="4" />
+                </Grid>
+
+              
+                        <Label Text="Good with ..." HorizontalOptions="Center" TextDecorations="Underline" FontSize="Subtitle" />
+               
+                        <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                            <Label Text="{Binding Dog.GoodWithChildren, StringFormat='Children: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                            <Label Text="0" Grid.Column="1" />
+                            <Slider Value="{Binding Dog.GoodWithChildren}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                            <Label Text="5" Grid.Column="4" />
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                            <Label Text="{Binding Dog.GoodWithOtherDogs, StringFormat='Other Dogs: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                            <Label Text="0" Grid.Column="1" />
+                            <Slider Value="{Binding Dog.GoodWithOtherDogs}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                            <Label Text="5" Grid.Column="4" />
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto">
+                            <Label Text="{Binding Dog.GoodWithStrangers, StringFormat='Strangers: {0}'}" Grid.Column="0" FontAttributes="Bold" />
+                            <Label Text="0" Grid.Column="1" />
+                            <Slider Value="{Binding Dog.GoodWithStrangers}" Maximum="5" Minimum="0" WidthRequest="220" Style="{StaticResource StyledSlider}" Grid.Column="2" />
+                            <Label Text="5" Grid.Column="4" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

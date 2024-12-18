@@ -19,13 +19,17 @@ namespace MauiUppgift
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddTransient<SunService>();
+            builder.Services.AddSingleton<SunService>();
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();
 
-            builder.Services.AddTransient<DogService>();
-            builder.Services.AddTransient<DogViewModel>();
-            builder.Services.AddTransient<DogPage>();
+            builder.Services.AddSingleton<DogService>();
+            builder.Services.AddSingleton<DogViewModel>();
+            builder.Services.AddSingleton<DogPage>();
+
+            builder.Services.AddSingleton<DetailPage>();
+            builder.Services.AddSingleton<DetailViewModel>();
+
 
 
 #if DEBUG

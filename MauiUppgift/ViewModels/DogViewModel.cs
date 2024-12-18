@@ -19,26 +19,61 @@ namespace MauiUppgift.ViewModels
         Dog dog = new();
 
         [ObservableProperty]
+        ObservableCollection<Dog> dogs = new ObservableCollection<Dog>();
+
+        [ObservableProperty]
         public string? input;
+
+        [ObservableProperty]
+        public string? message;
 
         public DogViewModel(DogService dogService)
         {
             this.dogService = dogService;
         }
 
-        // TODO: Se över om man ska ha dog-details som popup? och sen en ComparePage?
-
         [RelayCommand]
         async Task GetDog(string? input)
         {
             if (!string.IsNullOrEmpty(Input))
             {
-                var fetchedDog = await dogService.GetDogAsync(Input);
-                if (fetchedDog != null)
+                Dogs.Clear();
+                var fetchedDogs = await dogService.GetDogAsync(Input);
+                if (fetchedDogs != null)
                 {
-                    Dog = fetchedDog;
+                    Dogs.Add(fetchedDogs[0]);
+                    foreach (var dog in fetchedDogs)
+                    {
+                        if (!Dogs.Contains(dog)) // ej dubblett
+                        {
+                            Dogs.Add(dog);
+                        }
+                    }
                 }
+                else
+                {
+                    Message = $"Couldn't find race '{Input}'. Check spelling and try again!";
+                    Console.Write($"-------> No dogs found for input: {Input}");
+                }
+                Console.WriteLine($"---------> Dogs count: {Dogs.Count}");
+                Input = null;
             }
+            else {
+                Message = "You have to write something...";
+            }
+        }
+
+        [RelayCommand]
+        async Task GotoDetail(Dog dog) {
+            await Shell.Current.GoToAsync($"{nameof(DetailPage)}", true, new Dictionary<string, object> { { "Dog", dog } });
+        }
+
+        public void ResetState()
+        {
+            Input = null;
+            Dogs.Clear();
+            Message = null;
+            Console.WriteLine("----> ResetState called: Input cleared and Dogs list emptied.");
         }
 
     }
