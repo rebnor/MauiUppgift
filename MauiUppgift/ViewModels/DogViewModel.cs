@@ -2,12 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using MauiUppgift.Models;
 using MauiUppgift.Services;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MauiUppgift.ViewModels
 {
@@ -73,7 +68,7 @@ namespace MauiUppgift.ViewModels
             Input = null;
             Dogs.Clear();
             Message = null;
-            Console.WriteLine("----> ResetState called: Input cleared and Dogs list emptied.");
+            Console.WriteLine("----> ResetState called: Input & Message cleared, Dogs-list emptied.");
         }
 
     }

@@ -19,7 +19,6 @@ namespace MauiUppgift
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddSingleton<SunService>();
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();
 
@@ -29,7 +28,6 @@ namespace MauiUppgift
 
             builder.Services.AddSingleton<DetailPage>();
             builder.Services.AddSingleton<DetailViewModel>();
-
 
 
 #if DEBUG

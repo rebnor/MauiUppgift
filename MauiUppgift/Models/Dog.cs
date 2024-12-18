@@ -83,15 +83,16 @@ namespace MauiUppgift.Models
 
 
 
-        // Beräknade egenskaper för vikt i kg
+        // Weight in kg
         public double? MaxWeightMaleKg => MaxWeightMale.HasValue ? Math.Round(MaxWeightMale.Value * 0.453592, 2) : null;
         public double? MaxWeightFemaleKg => MaxWeightFemale.HasValue ? Math.Round(MaxWeightFemale.Value * 0.453592, 2) : null;
 
 
-        // Beräknade egenskaper för höjd i cm
+        // Height in cm
         public double? MaxHeightMaleCm => MaxHeightMale.HasValue ? MaxHeightMale.Value * 2.54 : null;
         public double? MaxHeightFemaleCm => MaxHeightFemale.HasValue ? MaxHeightFemale.Value * 2.54 : null;
 
+        // Output for Lifespan
         public string LifeSpan => $"{MinLifeExpectancy}-{MaxLifeExpectancy} years";
     }
 }
