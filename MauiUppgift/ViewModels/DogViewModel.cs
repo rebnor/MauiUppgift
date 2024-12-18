@@ -28,8 +28,8 @@ namespace MauiUppgift.ViewModels
         }
 
         /**
-         * Command to get the Dogs that contains the 'input' in its Name.
-         * The API contains some doubles.
+         * Command to get the Dogs that contains the 'Input' in its Name.
+         * The API contains some doubles, which won't happen for the user.
          * Uses Message to write out fail-messages to user.
          */
         [RelayCommand]
@@ -44,7 +44,7 @@ namespace MauiUppgift.ViewModels
                     Dogs.Add(fetchedDogs[0]);
                     foreach (var dog in fetchedDogs)
                     {
-                        if (!Dogs.Contains(dog)) // ej dubblett
+                        if (!Dogs.Contains(dog))
                         {
                             Dogs.Add(dog);
                         }
@@ -52,7 +52,7 @@ namespace MauiUppgift.ViewModels
                 }
                 else
                 {
-                    Message = $"Couldn't find race '{Input}'. Check spelling and try again!";
+                    Message = $"Couldn't find breed '{Input}'. Check spelling and try again!";
                 }
                 Input = null;
             }

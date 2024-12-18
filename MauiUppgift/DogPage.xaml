@@ -12,7 +12,7 @@
             <Grid RowDefinitions="Auto,*">
                 <Frame BackgroundColor="#EEDADF" Margin="10" Padding="5" BorderColor="#9C3958" Grid.Row="0">
                     <VerticalStackLayout>
-                        <Entry Text="{Binding Input}" Placeholder="Search after race.." />
+                        <Entry Text="{Binding Input}" Placeholder="Search after breed.." />
                         <Button Text="Search" Command="{Binding GetDogCommand}" />
                     </VerticalStackLayout>
                 </Frame>
