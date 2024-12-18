@@ -10,7 +10,7 @@ namespace MauiUppgift.Services
 {
     public class DogService
     {
-        HttpClient httpClient;
+        private HttpClient httpClient;
 
         public DogService()
         {
@@ -18,6 +18,9 @@ namespace MauiUppgift.Services
             httpClient.DefaultRequestHeaders.Add("x-api-key", "7rAB/MwHvlzSSB1XvJDB8w==C50XeSWGSHkoa9ys");
         }
 
+        /**
+         * Gets Dogs from API
+         */
         public async Task<List<Dog>?> GetDogAsync(string input)
         {
             string? url = $"https://api.api-ninjas.com/v1/dogs?name={input.ToLower()}";

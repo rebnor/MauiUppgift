@@ -4,6 +4,9 @@ namespace MauiUppgift.ViewModels
 {
     public partial class MainViewModel : BaseViewModel
     {
+        /**
+         * Command to navigate to Dog page
+         */
         [RelayCommand]
         async Task GotoDog()
         {

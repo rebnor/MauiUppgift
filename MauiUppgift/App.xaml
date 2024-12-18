@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <!-- Slider style for DetailPage -->
             <Style x:Key="StyledSlider" TargetType="Slider">
                 <Setter Property="ThumbImageSource" Value="small_paw.png" />
                 <Setter Property="ThumbColor" Value="Black" />

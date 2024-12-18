@@ -9,18 +9,17 @@
     <Grid>
         <Image Source="bossydog.jpg" Aspect="AspectFill"/>
         <ScrollView>
- 
-                        <Grid RowDefinitions="Auto,*">
+            <Grid RowDefinitions="Auto,*">
                 <Frame BackgroundColor="#EEDADF" Margin="10" Padding="5" BorderColor="#9C3958" Grid.Row="0">
                     <VerticalStackLayout>
                         <Entry Text="{Binding Input}" Placeholder="Search after race.." />
                         <Button Text="Search" Command="{Binding GetDogCommand}" />
                     </VerticalStackLayout>
                 </Frame>
-                    <VerticalStackLayout Grid.Row="1">
+                <VerticalStackLayout Grid.Row="1">
                     <CollectionView ItemsSource="{Binding Dogs}" EmptyView="{Binding Message}">
                         <CollectionView.ItemTemplate>
-                                <DataTemplate x:DataType="model:Dog">
+                            <DataTemplate x:DataType="model:Dog">
                                 <Grid Margin="5">
                                     <Frame BackgroundColor="#40000000" Margin="10" BorderColor="#9C3958" HeightRequest="40" Padding="5">
                                         <Frame.GestureRecognizers>
@@ -33,12 +32,12 @@
                                                 </Label.Shadow>
                                             </Label>
                                         </Grid>
-                                        </Frame>
+                                    </Frame>
                                 </Grid>
                             </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </VerticalStackLayout>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
             </Grid>
         </ScrollView>
     </Grid>

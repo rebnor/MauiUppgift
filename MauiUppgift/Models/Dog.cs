@@ -82,7 +82,6 @@ namespace MauiUppgift.Models
         public string Name { get; set; }
 
 
-
         // Weight in kg
         public double? MaxWeightMaleKg => MaxWeightMale.HasValue ? Math.Round(MaxWeightMale.Value * 0.453592, 2) : null;
         public double? MaxWeightFemaleKg => MaxWeightFemale.HasValue ? Math.Round(MaxWeightFemale.Value * 0.453592, 2) : null;

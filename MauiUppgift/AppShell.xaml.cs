@@ -2,6 +2,9 @@
 {
     public partial class AppShell : Shell
     {
+        /**
+         * Register routes to pages
+         */
         public AppShell()
         {
             InitializeComponent();

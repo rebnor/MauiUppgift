@@ -10,6 +10,10 @@ public partial class DogPage : ContentPage
 		BindingContext = vm;
 	}
 
+
+    /**
+     * Resets the properties Input, Message and Dog-list.
+     */
     protected override void OnAppearing()
     {
         base.OnAppearing();

@@ -27,6 +27,11 @@ namespace MauiUppgift.ViewModels
             this.dogService = dogService;
         }
 
+        /**
+         * Command to get the Dogs that contains the 'input' in its Name.
+         * The API contains some doubles.
+         * Uses Message to write out fail-messages to user.
+         */
         [RelayCommand]
         async Task GetDog(string? input)
         {
@@ -48,9 +53,7 @@ namespace MauiUppgift.ViewModels
                 else
                 {
                     Message = $"Couldn't find race '{Input}'. Check spelling and try again!";
-                    Console.Write($"-------> No dogs found for input: {Input}");
                 }
-                Console.WriteLine($"---------> Dogs count: {Dogs.Count}");
                 Input = null;
             }
             else {
@@ -58,17 +61,22 @@ namespace MauiUppgift.ViewModels
             }
         }
 
+        /**
+         * Command to navigate to DetailPage for the chosen object/dog
+         */
         [RelayCommand]
         async Task GotoDetail(Dog dog) {
             await Shell.Current.GoToAsync($"{nameof(DetailPage)}", true, new Dictionary<string, object> { { "Dog", dog } });
         }
 
+        /**
+         * Resets the properties Input, Message and Dogs-list.
+         */
         public void ResetState()
         {
             Input = null;
             Dogs.Clear();
             Message = null;
-            Console.WriteLine("----> ResetState called: Input & Message cleared, Dogs-list emptied.");
         }
 
     }
